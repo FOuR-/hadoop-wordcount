@@ -25,7 +25,9 @@ $ hadoop fs -put dual.sql /user/hadoop/wordcount/
 * run  
 
 ```  
-$ hadoop jar hadoop-wordcount.jar com.test.App 
+$ hadoop jar hadoop-wordcount.jar com.test.App
+OR
+$ ./run.sh com.test.App
 ```  
 
 * 结果  
@@ -39,4 +41,8 @@ welcome	1
 world	2  
 ```  
 
+#### Run 
 
+```  
+$ ./run.sh *.class args(inputpath, outputpath)  
+```  
