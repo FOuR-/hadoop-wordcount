@@ -13,6 +13,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.record.compiler.JBoolean;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
@@ -29,6 +30,7 @@ public class App extends Configured implements Tool {
 
     public int run(String[] arg0) throws Exception {
         // TODO Auto-generated method stub
+        //定义输入输出路径
         Path input = new Path("/user/hadoop/wordcount");
         Path output = new Path("/user/hadoop/output");
         FileSystem fs = FileSystem.get(getConf());
@@ -40,10 +42,12 @@ public class App extends Configured implements Tool {
         FileInputFormat.setInputPaths(job, input);
         FileOutputFormat.setOutputPath(job, output);
         
+        //指定Mapper 、 Mapper的输入输出类型
         job.setMapperClass(baseMapper.class);
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
         
+        //指定Reducer 、 Reducer的输入输出类型
         job.setReducerClass(baseReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
@@ -60,6 +64,10 @@ public class App extends Configured implements Tool {
         } else {
             return 2;
         }
+        /**
+        boolean success = job.waitForCompletion(true);
+        return success ? 0 : 1;
+        */
         
     }
 
