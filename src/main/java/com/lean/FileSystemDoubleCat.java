@@ -22,8 +22,11 @@ public class FileSystemDoubleCat {
         
         try {
             in = fs.open(new Path(uri));
+            //fist print
             IOUtils.copyBytes(in, System.out, 4098, false);
+            //go back to the start of file
             in.seek(0);
+            //second print
             IOUtils.copyBytes(in, System.out, 4098, false);
         } finally {
             IOUtils.closeStream(in);

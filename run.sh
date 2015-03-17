@@ -5,7 +5,7 @@ mvn clean package
 class=$1
 args1=$2
 if [ ! $class ]; then
-  echo "args must more than one"
+  echo "args must more be than one"
   exit 0
 fi
 
