@@ -1,4 +1,6 @@
-## Hadoop WordCount  
+## Hadoop MapReduce  
+
+#### WordCount   
 
 * clone 代码   
 
